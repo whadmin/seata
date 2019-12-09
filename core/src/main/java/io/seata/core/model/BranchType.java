@@ -17,6 +17,7 @@ package io.seata.core.model;
 
 /**
  * Branch分支事务枚举类型。
+ *
  * @author sharajava
  */
 public enum BranchType {
@@ -25,7 +26,7 @@ public enum BranchType {
      * The At.
      */
     AT,
-    
+
     /**
      * The TCC.
      */
@@ -43,7 +44,7 @@ public enum BranchType {
      * @return the branch type
      */
     public static BranchType get(byte ordinal) {
-        return get((int)ordinal);
+        return get((int) ordinal);
     }
 
     /**
