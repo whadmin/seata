@@ -19,104 +19,103 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Status of global transaction.
+ * 全局事务状态
  *
  * @author sharajava
  */
 public enum GlobalStatus {
 
     /**
-     * Un known global status.
+     * 位置状态
      */
     // Unknown
     UnKnown(0),
 
     /**
-     * The Begin.
+     * 开始。
      */
     // PHASE 1: can accept new branch registering.
     Begin(1),
 
     /**
-     * PHASE 2: Running Status: may be changed any time.
+     * 正在提交运行状态
      */
     // Committing.
     Committing(2),
 
     /**
-     * The Commit retrying.
+     * 提交重试运行状态
      */
     // Retrying commit after a recoverable failure.
     CommitRetrying(3),
 
     /**
-     * Rollbacking global status.
+     * 回滚运行状态。
      */
     // Rollbacking
     Rollbacking(4),
 
     /**
-     * The Rollback retrying.
+     * 回滚重试运行状态
      */
     // Retrying rollback after a recoverable failure.
     RollbackRetrying(5),
 
     /**
-     * The Timeout rollbacking.
+     * 回滚运行状态(TC超时导致)
      */
     // Rollbacking since timeout
     TimeoutRollbacking(6),
 
     /**
-     * The Timeout rollback retrying.
+     * 回滚重试运行状态(TC超时导致)
      */
     // Retrying rollback (since timeout) after a recoverable failure.
     TimeoutRollbackRetrying(7),
 
     /**
-     * All branches can be async committed. The committing is NOT done yet, but it can be seen as committed for TM/RM
-     * client.
+     * 所有分支都可以异步提交。提交尚未完成，但是可以将其视为已提交给TM / RM客户端。
      */
     AsyncCommitting(8),
 
     /**
-     * PHASE 2: Final Status: will NOT change any more.
+     * 提交完成状态
      */
     // Finally: global transaction is successfully committed.
     Committed(9),
 
     /**
-     * The Commit failed.
+     * 提交失败状态（多次重试后被中止）。
      */
     // Finally: failed to commit
     CommitFailed(10),
 
     /**
-     * The Rollbacked.
+     * 回滚完成状态。
      */
     // Finally: global transaction is successfully rollbacked.
     Rollbacked(11),
 
     /**
-     * The Rollback failed.
+     * 回滚失败。
      */
     // Finally: failed to rollback
     RollbackFailed(12),
 
     /**
-     * The Timeout rollbacked.
+     * 超时回滚。
      */
     // Finally: global transaction is successfully rollbacked since timeout.
     TimeoutRollbacked(13),
 
     /**
-     * The Timeout rollback failed.
+     * 超时回滚失败。
      */
     // Finally: failed to rollback since timeout
     TimeoutRollbackFailed(14),
 
     /**
-     * The Finished.
+     * 已完成。
      */
     // Not managed in session MAP any more
     Finished(15);
@@ -127,9 +126,8 @@ public enum GlobalStatus {
         this.code = code;
     }
 
-
     /**
-     * Gets code.
+     * 获取code
      *
      * @return the code
      */
@@ -148,7 +146,7 @@ public enum GlobalStatus {
     }
 
     /**
-     * Get global status.
+     * 获取全局事务状态
      *
      * @param code the code
      * @return the global status
@@ -158,7 +156,7 @@ public enum GlobalStatus {
     }
 
     /**
-     * Get global status.
+     * 获取全局事务状态
      *
      * @param code the code
      * @return the global status
