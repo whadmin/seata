@@ -54,8 +54,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import static io.seata.core.constants.ConfigurationKeys.DATASOURCE_AUTOPROXY;
 
 /**
- * The type Global transaction scanner.
+ * 全局事务扫描器。
  *
+ * GlobalTransactionScanner继承了AbstractAutoProxyCreator抽象类，并重新实现了wrapIfNecessary接口(该接口用来在spring启动时，生成代理类)
  * @author jimin.jm @alibaba-inc.com
  * @date 2018 /12/28
  */
