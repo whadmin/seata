@@ -16,8 +16,7 @@
 package io.seata.core.model;
 
 /**
- * The enum Branch type.
- *
+ * Branch分支事务枚举类型。
  * @author sharajava
  */
 public enum BranchType {
@@ -25,7 +24,6 @@ public enum BranchType {
     /**
      * The At.
      */
-    // AT Branch
     AT,
     
     /**
@@ -39,7 +37,7 @@ public enum BranchType {
     SAGA;
 
     /**
-     * Get branch type.
+     * 获取Branch分支事务枚举类型
      *
      * @param ordinal the ordinal
      * @return the branch type
@@ -49,10 +47,10 @@ public enum BranchType {
     }
 
     /**
-     * Get branch type.
+     * 获取Branch分支事务枚举类型
      *
-     * @param ordinal the ordinal
-     * @return the branch type
+     * @param ordinal 序数
+     * @return Branch分支事务枚举类型。
      */
     public static BranchType get(int ordinal) {
         for (BranchType branchType : BranchType.values()) {
