@@ -21,75 +21,75 @@ import java.util.Map;
 import io.seata.common.exception.ShouldNeverHappenException;
 
 /**
- * Status of branch transaction.
+ * 分支事务的状态
  *
  * @author sharajava
  */
 public enum BranchStatus {
 
     /**
-     * The Unknown.
-     * description:Unknown branch status.
+     * 未知.
+     * 描述:分布事务状态未知.
      */
     Unknown(0),
 
     /**
-     * The Registered.
-     * description:Registered to TC.
+     * 已注册,
+     * 描述：已注册到TC。
      */
     Registered(1),
 
     /**
-     * The Phase one done.
-     * description:Branch logic is successfully done at phase one.
+     * 第一阶段完成.
+     * 描述：分支逻辑已在第一阶段成功完成。
      */
     PhaseOne_Done(2),
 
     /**
-     * The Phase one failed.
-     * description:Branch logic is failed at phase one.
+     * 第一阶段失败.
+     * 描述：分支逻辑在第一阶段失败。
      */
     PhaseOne_Failed(3),
 
     /**
-     * The Phase one timeout.
-     * description:Branch logic is NOT reported for a timeout.
+     * 第一阶段超时.
+     * 描述：未报告超时的分支逻辑。
      */
     PhaseOne_Timeout(4),
 
     /**
-     * The Phase two committed.
-     * description:Commit logic is successfully done at phase two.
+     * 第二阶段已落实。
+     * 描述：在第二阶段成功完成了提交逻辑。
      */
     PhaseTwo_Committed(5),
 
     /**
-     * The Phase two commit failed retryable.
-     * description:Commit logic is failed but retryable.
+     * 第二阶段提交失败，可重试.
+     * 描述：提交逻辑失败但可重试。
      */
     PhaseTwo_CommitFailed_Retryable(6),
 
     /**
-     * The Phase two commit failed unretryable.
-     * description:Commit logic is failed and NOT retryable.
+     * 第二阶段提交失败，无法重试.
+     * 描述：提交逻辑失败并且不可重试。
      */
     PhaseTwo_CommitFailed_Unretryable(7),
 
     /**
-     * The Phase two rollbacked.
-     * description:Rollback logic is successfully done at phase two.
+     * 第二阶段回滚.
+     * 描述：回滚逻辑已在第二阶段成功完成。
      */
     PhaseTwo_Rollbacked(8),
 
     /**
-     * The Phase two rollback failed retryable.
-     * description:Rollback logic is failed but retryable.
+     * 第二阶段回滚失败可重试.
+     * 描述：回滚逻辑失败，但可以重试。
      */
     PhaseTwo_RollbackFailed_Retryable(9),
 
     /**
-     * The Phase two rollback failed unretryable.
-     * description:Rollback logic is failed but NOT retryable.
+     * 第二阶段回滚失败，无法重试.
+     * 描述：回滚逻辑失败，但不可重试。
      */
     PhaseTwo_RollbackFailed_Unretryable(10);
 
@@ -100,7 +100,7 @@ public enum BranchStatus {
     }
 
     /**
-     * Gets code.
+     * 获取code
      *
      * @return the code
      */
@@ -117,20 +117,20 @@ public enum BranchStatus {
     }
 
     /**
-     * Get branch status.
+     * 获取分支事务状态
      *
      * @param code the code
-     * @return the branch status
+     * @return 分支事务状态
      */
     public static BranchStatus get(byte code) {
-        return get((int)code);
+        return get((int) code);
     }
 
     /**
-     * Get branch status.
+     * 获取分支事务状态
      *
      * @param code the code
-     * @return the branch status
+     * @return 分支事务状态
      */
     public static BranchStatus get(int code) {
         BranchStatus status = MAP.get(code);
